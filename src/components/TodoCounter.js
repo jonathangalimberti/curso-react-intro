@@ -1,5 +1,7 @@
+import './TodoCounter.css';
+
 function TodoCounter(props){
- return ( <h3>Has completado 2 de 5 TODOs</h3>)
+ return ( <p>Has completado <b>{props.completed}</b> de <b>{props.total}</b> TODOs</p>)
 }
 
 export {TodoCounter}

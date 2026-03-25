@@ -1,5 +1,7 @@
+import './TodoNewButton.css'
+
 function TodoNewButton(){
- return (<button type="button">Agregar TODO</button>)
+ return (<button type="button"> + </button>)
 }
 
 export {TodoNewButton}
