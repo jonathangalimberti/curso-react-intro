@@ -11,6 +11,7 @@ li{
 span{
    
     padding: 10px;
+    cursor: pointer;
 }
 
 p{
@@ -19,8 +20,4 @@ p{
 
 .completed{
     text-decoration: line-through;
-}
-
-span{
-    cursor: pointer;
 }
