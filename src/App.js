@@ -6,20 +6,32 @@ import { TodoItem } from "./components/TodoItem";
 import React from "react";
 import "./app.css";
 
-function App() {
-  const defaultTodos = localStorage.getItem("TODOS_V1");
-  
-  let parsedTodos = [];
-  
-  if (!defaultTodos){
-    localStorage.setItem("TODOS_V1", JSON.stringify([]));
-  }else {
-    parsedTodos = JSON.parse(defaultTodos)
+function useLocalStorage(itemName, InitialValue) {
+  const localSotarageItem = localStorage.getItem(itemName);
+
+  let parsedItem = InitialValue;
+
+  if (!localSotarageItem) {
+    localStorage.setItem(itemName, JSON.stringify(InitialValue));
+  } else {
+    parsedItem = JSON.parse(localSotarageItem);
   }
-  
-  const [todos, setTodos] = React.useState(parsedTodos);
+
+  const [item, setItem] = React.useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    const stringifiedItem = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifiedItem);
+    setItem(newItem);
+  };
+
+  return [item, saveItem];
+}
+
+function App() {
+  const [todos, saveTodos] = useLocalStorage("TODOS_V1",[]);
   const [searchText, setSearchText] = React.useState("");
-  
+
   const searchedTodo = todos.filter((todo) =>
     todo.text.toLowerCase().includes(searchText.toLowerCase()),
   );
@@ -36,15 +48,9 @@ function App() {
   const deleteTodos = (text) => {
     const newTodos = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos.splice(todoIndex,1);
+    newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
-  }
-
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem("TODOS_V1",stringifiedTodos);
-    setTodos(newTodos);
-  }
+  };
 
   return (
     <React.Fragment>
@@ -66,8 +72,7 @@ function App() {
               text={todo.text}
               completed={todo.completed}
               onComplete={() => completeTodos(todo.text)}
-              onDelete = {() => deleteTodos(todo.text)}
-            
+              onDelete={() => deleteTodos(todo.text)}
             />
           ))}
         </TodoList>
@@ -76,6 +81,5 @@ function App() {
     </React.Fragment>
   );
 }
-
 
 export default App;
