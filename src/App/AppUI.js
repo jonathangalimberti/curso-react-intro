@@ -8,40 +8,25 @@ import { TodosLoading } from "../components/TodosLoading";
 import { TodosError } from "../components/TodosError";
 import { EmptyTodos } from "../components/EmptyTodos";
 import { TodoContext } from "../components/TodoContext";
+import {Modal} from "../components/Modal";
+import { TodoForm } from "../components/TodoForm";
 
 function AppUI() {
-//   {
-// loading,
-// error,
-// completedTodos,
-// todos,
-// searchText,
-// setSearchText,
-// searchedTodo,
-// completeTodos,
-// deleteTodos
-// }
-  return (
-    <React.Fragment>
-      <div id="container">
-        <TodoCounter
-          // key={todos.indexOf(todos.text)}
-          // todos={completedTodos}
-          // total={todos.length}
-        />
-        <TodoSearch
-          // todos={todos}
-          // searchText={searchText}
-          // setSearchText={setSearchText}
-        />
-        <TodoContext.Consumer>
-          {({
+
+  const {
             loading,
             error,
             searchedTodo,
             completeTodos,
             deleteTodos,
-          }) => (
+            openModal,
+          } = React.useContext(TodoContext);
+
+  return (
+    <React.Fragment>
+      <div id="container">
+        <TodoCounter/>
+        <TodoSearch/>
             <TodoList>
               {loading && <TodosLoading />}
               {error && <TodosError />}
@@ -57,10 +42,13 @@ function AppUI() {
                 />
               ))}
             </TodoList>
-          )}
-        </TodoContext.Consumer>
-
         <TodoNewButton />
+        
+          {openModal && (
+            <Modal  >
+              <TodoForm/>
+            </Modal>)}
+        
       </div>
     </React.Fragment>
   );

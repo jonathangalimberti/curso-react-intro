@@ -1,12 +1,16 @@
 import './TodoCounter.css';
+import React from 'react';
+import {TodoContext} from '../TodoContext';
 
-function TodoCounter(props){
-    if (props.total === 0 ) {
+function TodoCounter(){
+    const {completedTodos, todos} = React.useContext(TodoContext);
+
+    if (todos.length === 0 ) {
         return <p> Agrega Todo's a tu lista</p>
-    }else if (props.todos === props.total){
+    }else if (completedTodos === todos.length){
         return <p>Felicitaciones, completastes todos tus TODO's</p>
     }else{
-        return ( <p >Has completado <b>{props.todos}</b> de <b>{props.total}</b> TODOs</p>)
+        return ( <p >Has completado <b>{completedTodos}</b> de <b>{todos.length}</b> TODOs</p>)
     }
 }
 

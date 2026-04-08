@@ -20,8 +20,10 @@ function useLocalStorage(itemName, InitialValue) {
     } catch (error) {
       setLoading(false);
       setError(true)
+      console.log(error);
+      
     }
-  },[itemName])
+  },[])
 
 
   const saveItem = (newItem) => {
@@ -34,3 +36,7 @@ function useLocalStorage(itemName, InitialValue) {
 }
 
 export { useLocalStorage };
+
+  // const defaultTodos = [{text: "Contar ovejas", completed:false},{text: "Contar cuentos", completed:false},{text: "Contar plata", completed:false},{text: "Contar aros", completed:false},{text: "Contar comida", completed:false},{text: "Contar ropa", completed:false}]
+
+  // localStorage.setItem("TODOS_V1", JSON.stringify(defaultTodos))

@@ -1,4 +1,4 @@
-button{
+.todoNewButton{
     position: fixed;
     bottom: 5vh;
     right: 5vw;
