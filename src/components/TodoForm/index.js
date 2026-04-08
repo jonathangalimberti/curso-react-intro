@@ -1,34 +1,43 @@
-import './todoForm.css';
-import React from 'react';
-import {TodoContext} from "../TodoContext";
+import "./todoForm.css";
+import React from "react";
+import { TodoContext } from "../TodoContext";
 
-function TodoForm (){
+function TodoForm() {
+  const { openCloseModal, addTodo } = React.useContext(TodoContext);
+  const [newTodoValue, setNewTodoValue] = React.useState("");
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addTodo(newTodoValue);
+    openCloseModal();
+  };
 
-    const {saveTodos,openCloseModal,todos} = React.useContext (TodoContext)
-    const [newTodo,setNewTodo] = React.useState("");
+  const onChange = (e) => {
+    setNewTodoValue(e.target.value);
+  };
 
-    
-
-    function onSubmit (){
-        const newTodoInput = document.getElementById("newTodoInput");
-        const newTodoValue = newTodoInput.value;
-
-        console.log("esto es newTodoValue " + newTodoValue);
-    }
-
-    
-
-    return(
-        <div className = "container">
-            <button className = "close" onClick={openCloseModal}>❌</button>
-            <h3 className="title" 
-            > Crear nueva tarea</h3>
-            <form className = "form">
-                <input type = "text" placeholder = "Nueva tarea" className= "input" id="newTodoInput"/>
-                <button type = "button" className ="submit" onClick={onSubmit}> Agregar tarea</button>
-            </form>
+  return (
+    <div className="container">
+      <h3 className="title"> Crear nueva tarea</h3>
+      <form className="form" onSubmit={onSubmit}>
+        <textarea
+          type="text"
+          placeholder="Nueva tarea"
+          className="textArea"
+          value={newTodoValue}
+          onChange={onChange}
+        />
+        <div className="container-button">
+          <button className="close" onClick={openCloseModal}>
+            Cancelar
+          </button>
+          <button className="submit" onClick={onSubmit}>
+            {" "}
+            Añadir
+          </button>
         </div>
-    )
+      </form>
+    </div>
+  );
 }
 
-export { TodoForm }
+export { TodoForm };

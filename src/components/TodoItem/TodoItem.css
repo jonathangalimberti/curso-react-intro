@@ -1,23 +1,22 @@
-li{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: aquamarine;
-    padding: 0;
-    border-radius: 10px;
-    min-width: 70%;
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: aquamarine;
+  padding: 0;
+  border-radius: 10px;
+  min-width: 70%;
 }
 
-span{
-   
-    padding: 10px;
-    cursor: pointer;
+span {
+  padding: 10px;
+  cursor: pointer;
 }
 
-p{
-     width: 100%;
+p {
+  width: 100%;
 }
 
-.completed{
-    text-decoration: line-through;
+.completed {
+  text-decoration: line-through;
 }

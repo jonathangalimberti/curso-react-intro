@@ -1,12 +1,8 @@
 // import { TodoItem } from '../TodoItem';
-import './TodoList.css';
+import "./TodoList.css";
 
-function TodoList(props){
- return ( 
-    <ul>
-       {props.children}
-    </ul>
- )
+function TodoList(props) {
+  return <ul>{props.children}</ul>;
 }
 
-export {TodoList}
+export { TodoList };

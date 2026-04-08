@@ -1,37 +1,45 @@
-.container{
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 10px;
-    border-radius: 25px;
+.container {
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 10px;
+  border-radius: 25px;
+  width: 50vh;
 }
 
-.form{
-    display: flex;
-    flex-direction: column;
-    padding: 0px 25px 15px 25px;
-    }
-
-.input{
-align-self: center;
-width: 100%;
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 25px 15px 25px;
+  width: 100%;
 }
 
-.submit{
-align-self: flex-end;
-border-radius: 10px;
-margin-top: 15px;
-padding: 10px;
-background-color: aqua;
-
+.textArea {
+  align-self: center;
+  height: 100px;
+  width: 75%;
+  padding: 10px 25px;
 }
 
-.close{
-    align-self: flex-end;
-    background-color:  rgba(97, 78, 78, 0.26);
-    border: none;
-    border-radius:25px;
-    padding: 10px 10px;
+.submit {
+  border-radius: 10px;
+  padding: 10px;
+  background-color: aqua;
+  border: none;
+}
+
+.close {
+  background-color: rgba(97, 78, 78, 0.26);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.container-button {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
