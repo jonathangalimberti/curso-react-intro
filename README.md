@@ -39,12 +39,12 @@ Persistencia de datos en el navegador<br/>
 
 ⚙️<b> Instalación local</b>
 
-Si querés correr el proyecto en tu máquina:
-
+Si querés correr el proyecto en tu máquina:<br/>
+<code>
 git clone https://github.com/jonathangalimberti/curso-react-intro.git<br/>
 cd curso-react-intro<br/>
 npm install<br/>
-npm start
+npm start</code>
 
 📌 <b>Próximas mejoras</b><br/>
 🔹 Contador de tareas pendientes<br/>
