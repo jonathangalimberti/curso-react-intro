@@ -16,10 +16,11 @@ function TodoForm() {
   };
 
   return (
-    <div className="container">
+    <div className="container modal-form" id="modal-form">
       <h3 className="title"> Crear nueva tarea</h3>
       <form className="form" onSubmit={onSubmit}>
         <textarea
+          autoFocus
           type="text"
           placeholder="Nueva tarea"
           className="textArea"

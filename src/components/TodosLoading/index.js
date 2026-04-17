@@ -1,8 +1,16 @@
 import React from "react";
 import "./todosLoading.css";
+import { TodoItem } from "../TodoItem";
+import { TodoList } from "../TodoList";
 
 function TodosLoading() {
-  return <p>Cargando la información de los TODO's</p>;
+  return (
+    <TodoList>
+      <TodoItem />
+      <TodoItem />
+      <TodoItem />
+    </TodoList>
+  );
 }
 
 export { TodosLoading };
